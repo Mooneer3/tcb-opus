@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/Coko7/tcb-opus#readme",
   "dependencies": {
-    "axios": "^0.25.0",
+    "axios": "^1.7.2",
     "discord.js": "^13.6.0",
     "winston": "^3.8.2"
   }
