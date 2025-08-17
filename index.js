@@ -55,6 +55,12 @@ client.on('messageCreate', async (message) => {
     } else if (res.chapter) {
       logger.info('Successfully fetched chapter', res);
 
+      // Check if chapter has already been sent
+      if (data.mangas?.find((m) => m.name === manga.name) && res.chapter <= stored.chapter) {
+        logger.info(`Chapter ${res.chapter} for ${manga.name} has already been sent.`);
+        return;
+      }
+      
       // Get the Discord output channel for the current manga
       const channel = client.channels.cache.get(manga.toChannel);
       const notifyPrefix = manga.notifyRole ? `<@&${manga.notifyRole}> ` : '';
